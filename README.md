@@ -1,5 +1,4 @@
 ## 享受更快的jeecg-boot
-
 原加载时间19.83s 8.4M trans(传输的文件大小,选的其中一个比较大的js为典型)
 1. 移除 prefetch 插件 done
     config.plugins.delete('prefetch')
