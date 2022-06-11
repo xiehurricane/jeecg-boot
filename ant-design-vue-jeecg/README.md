@@ -1,3 +1,12 @@
+原 19.83s 8.4M trans
+1.     // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+2. component 异步
+    5.32s 5.5M trans
+3. 删除库vxe-table antv
+    3.77s 5.1M trans
+
+
 Ant Design Jeecg Vue
 ====
 
