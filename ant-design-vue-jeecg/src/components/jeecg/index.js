@@ -1,38 +1,42 @@
+//x优化 component异步
+// const JModal = () => import('./JModal')
 import JModal from './JModal'
-import JFormContainer from './JFormContainer.vue'
-import JPopup from './JPopup.vue'
-import JMarkdownEditor from './JMarkdownEditor'
-import JCodeEditor from './JCodeEditor.vue'
-import JEditor from './JEditor.vue'
-import JEditableTable from './JEditableTable.vue'
-import JAreaLinkage from './JAreaLinkage.vue'
-import JSuperQuery from './JSuperQuery.vue'
-import JUpload from './JUpload.vue'
-import JTreeSelect from './JTreeSelect.vue'
-import JCategorySelect from './JCategorySelect.vue'
-import JImageUpload from './JImageUpload.vue'
-import JImportModal from './JImportModal.vue'
-import JTreeDict from './JTreeDict.vue'
-import JCheckbox from './JCheckbox.vue'
-import JCron from './JCron.vue'
-import JDate from './JDate.vue'
-import JEllipsis from './JEllipsis.vue'
-import JInput from './JInput.vue'
-import JPopupOnlReport from './modal/JPopupOnlReport.vue'
-import JFilePop from './minipop/JFilePop.vue'
-import JInputPop from './minipop/JInputPop.vue'
-import JSelectMultiple from './JSelectMultiple.vue'
-import JSlider from './JSlider.vue'
-import JSwitch from './JSwitch.vue'
-import JTime from './JTime.vue'
-import JTreeTable from './JTreeTable.vue'
-import JEasyCron from '@/components/jeecg/JEasyCron'
+const JFormContainer = () => import('./JFormContainer.vue')
+const JPopup = () => import('./JPopup.vue')
+const JMarkdownEditor = () => import('./JMarkdownEditor')
+const JCodeEditor = () => import('./JCodeEditor.vue')
+const JEditor = () => import('./JEditor.vue')
+const JEditableTable = () => import('./JEditableTable.vue')
+const JAreaLinkage = () => import('./JAreaLinkage.vue')
+const JSuperQuery = () => import('./JSuperQuery.vue')
+const JUpload = () => import('./JUpload.vue')
+const JTreeSelect = () => import('./JTreeSelect.vue')
+const JCategorySelect = () => import('./JCategorySelect.vue')
+const JImageUpload = () => import('./JImageUpload.vue')
+const JImportModal = () => import('./JImportModal.vue')
+const JTreeDict = () => import('./JTreeDict.vue')
+const JCheckbox = () => import('./JCheckbox.vue')
+const JCron = () => import('./JCron.vue')
+const JDate = () => import('./JDate.vue')
+const JEllipsis = () => import('./JEllipsis.vue')
+const JInput = () => import('./JInput.vue')
+const JPopupOnlReport = () => import('./modal/JPopupOnlReport.vue')
+const JFilePop = () => import('./minipop/JFilePop.vue')
+const JInputPop = () => import('./minipop/JInputPop.vue')
+const JSelectMultiple = () => import('./JSelectMultiple.vue')
+const JSlider = () => import('./JSlider.vue')
+const JSwitch = () => import('./JSwitch.vue')
+const JTime = () => import('./JTime.vue')
+const JTreeTable = () => import('./JTreeTable.vue')
+import JEasyCron from "@/components/jeecg/JEasyCron";
+
 //jeecgbiz
-import JSelectDepart from '../jeecgbiz/JSelectDepart.vue'
-import JSelectMultiUser from '../jeecgbiz/JSelectMultiUser.vue'
-import JSelectPosition from '../jeecgbiz/JSelectPosition.vue'
-import JSelectRole from '../jeecgbiz/JSelectRole.vue'
-import JSelectUserByDep from '../jeecgbiz/JSelectUserByDep.vue'
+const JSelectDepart = () => import('../jeecgbiz/JSelectDepart.vue')
+const JSelectMultiUser = () => import('../jeecgbiz/JSelectMultiUser.vue')
+const JSelectPosition = () => import('../jeecgbiz/JSelectPosition.vue')
+const JSelectRole = () => import('../jeecgbiz/JSelectRole.vue')
+const JSelectUserByDep = () => import('../jeecgbiz/JSelectUserByDep.vue')
+
 //引入需要全局注册的js函数和变量
 import { Modal, notification,message } from 'ant-design-vue'
 import lodash_object from 'lodash'

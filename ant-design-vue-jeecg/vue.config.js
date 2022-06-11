@@ -30,9 +30,19 @@ module.exports = {
     //生产环境取消 console.log
     if (process.env.NODE_ENV === 'production') {
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
+      //x优化 
+      // （缺省值5）按需加载时的最大并行请求数
+      config.optimization.splitChunks.maxAsyncRequests = 30
+      // （默认值3）入口点上的最大并行请求数
+      config.optimization.splitChunks.maxInitialRequests = 20
     }
   },
   chainWebpack: (config) => {
+
+    //x优化 移除 prefetch 插件 
+    // 原因是js模块文件多达2百余 阻塞了网络 影响首页必须项的加载
+    config.plugins.delete('prefetch')
+
     config.resolve.alias
       .set('@$', resolve('src'))
       .set('@api', resolve('src/api'))
@@ -42,11 +52,11 @@ module.exports = {
 
     //生产环境，开启js\css压缩
     if (process.env.NODE_ENV === 'production') {
-        config.plugin('compressionPlugin').use(new CompressionPlugin({
-          test: /\.(js|css|less)$/, // 匹配文件名
-          threshold: 10240, // 对超过10k的数据压缩
-          deleteOriginalAssets: false // 不删除源文件
-        }))
+      config.plugin('compressionPlugin').use(new CompressionPlugin({
+        test: /\.(js|css|less)$/, // 匹配文件名
+        threshold: 10240, // 对超过10k的数据压缩
+        deleteOriginalAssets: false // 不删除源文件
+      }))
     }
 
     // 配置 webpack 识别 markdown 为普通的文件
@@ -62,9 +72,9 @@ module.exports = {
       .rule('vxe')
       .test(/\.js$/)
       .include
-        .add(resolve('node_modules/vxe-table'))
-        .add(resolve('node_modules/vxe-table-plugin-antd'))
-        .end()
+      .add(resolve('node_modules/vxe-table'))
+      .add(resolve('node_modules/vxe-table-plugin-antd'))
+      .end()
       .use()
       .loader('babel-loader')
       .end()
@@ -97,14 +107,14 @@ module.exports = {
     //     'Access-Control-Allow-Origin': '*',
     // },
     proxy: {
-     /* '/api': {
-        target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro', //mock API接口系统
-        ws: false,
-        changeOrigin: true,
-        pathRewrite: {
-          '/jeecg-boot': ''  //默认所有请求都加了jeecg-boot前缀，需要去掉
-        }
-      },*/
+      /* '/api': {
+         target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro', //mock API接口系统
+         ws: false,
+         changeOrigin: true,
+         pathRewrite: {
+           '/jeecg-boot': ''  //默认所有请求都加了jeecg-boot前缀，需要去掉
+         }
+       },*/
       /* 注意：jeecgboot前端做了改造，此处不需要配置跨域和后台接口（只需要改.env相关配置文件即可）
           issues/3462 很多人此处做了配置，导致刷新前端404问题，请一定注意*/
       '/jeecg-boot': {

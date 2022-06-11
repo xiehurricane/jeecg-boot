@@ -14,11 +14,15 @@ require('@jeecg/antd-online-mini/dist/OnlineForm.css')
 import Antd, { version } from 'ant-design-vue'
 console.log('ant-design-vue version:', version)
 
+//x优化 3. 删除不需要的库
+// import Viser from 'viser-vue'
 import Viser from 'viser-vue'
 import 'ant-design-vue/dist/antd.less';  // or 'ant-design-vue/dist/antd.less'
 
 import '@/permission' // permission control
 import '@/utils/filter' // base filter
+//x优化 3. 删除不需要的库
+// import Print from 'vue-print-nb-jeecg'
 import Print from 'vue-print-nb-jeecg'
 /*import '@babel/polyfill'*/
 import preview from 'vue-photo-preview'
@@ -54,9 +58,13 @@ Vue.config.productionTip = false
 Vue.use(Storage, config.storageOptions)
 Vue.use(Antd)
 Vue.use(VueAxios, router)
+//x优化 3. 删除不需要的库
+// Vue.use(Viser)
 Vue.use(Viser)
 Vue.use(hasPermission)
 Vue.use(JDictSelectTag)
+//x优化 3. 删除不需要的库
+// Vue.use(Print)
 Vue.use(Print)
 Vue.use(preview)
 Vue.use(vueBus);
